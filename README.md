@@ -1,6 +1,6 @@
-# [Name]
-## [Assignment #]
-## [Submission date: MM/DD/YY]
+# [Rylan Galloway]
+## [Assignment #] Lab 06
+## [Submission date: 10/20/24]
 ## Worked with/sources 
 * example
 * example

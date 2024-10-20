@@ -1,12 +1,10 @@
-# Your Name Here
+# Rylan Galloway
 # UWYO COSC 1010
-# Submission Date
+# Submission Date 10/20/2024
 # Lab 06
-# Lab Section: 
+# Lab Section: 14
 # Sources, people worked with, help given to: 
-# your
-# comments
-# here
+# Homework 01, Lecture 7-9
 
 
 random_string = """
@@ -65,11 +63,19 @@ random_string = random_string.replace("\n","") #remove all newline characters
 print(len(random_string)) # Print out the size for reference 
 
 # Above is a string with 2500 characters.
-# Create a program that goes through and counts the occurrence of each character, excluding \n using a  dictionary
+# Create a program that goes through and counts the occurrence of each character, excluding \n using a dictionary
 # Output each letter and its corresponding occurrence in alphabetical order
 # Output which letter occurred the most 
 # Output which letter occurred the least 
 # Output what the percentage of the string each character is, again in alphabetical
+character_count_dic = {}
+for character in random_string.replace("\n",""):
+    if character in character_count_dic:
+        character_count_dic[character] += 1
+    else:
+        character_count_dic[character] = 1
+for input, output in sorted(character_count_dic.items()):
+    print(f"{input}:{output}")
 
 #Tips and trick:
 # You can iterate through strings like you would a list
@@ -87,14 +93,21 @@ print(len(random_string)) # Print out the size for reference
 
 print("*"*75)
 # Output which letter occurred the most 
-
-most_occurred = ""
-least_occurred = ""
-
-print(f"The letter that occurred the most is {most_occurred}")
+max_character = max(character_count_dic, key=character_count_dic.get)
+most_occurred = character_count_dic[max_character]
+most_occurred2= max(character_count_dic, key=character_count_dic.get)
+min_character = min(character_count_dic, key=character_count_dic.get)
+least_occurred = character_count_dic[min_character]
+min_character2 = min(character_count_dic, key=character_count_dic.get)
+print(f"The letter that occurred the most is {most_occurred2}:{most_occurred}")
 print("*"*75)
 # Output which letter occurred the least 
-print(f"The letter that occurred the most is {least_occurred}")
+print(f"The letter that occurred the least is {min_character2}:{least_occurred}")
 print("*"*75)
 
 # Output what the percentage of the string each character is, again in alphabetical
+#for inputs in sorted(character_count_dic):
+totalcharacters= len(character_count_dic)
+for input, output in sorted(character_count_dic.items()):
+    character_percent = (output / totalcharacters) 
+    print(f"{input}:{character_percent}%")
